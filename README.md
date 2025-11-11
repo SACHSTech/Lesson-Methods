@@ -271,7 +271,7 @@ public class Program2 extends ConsoleProgram {
 }
 ```
 
-## Program3.java — Extract the Chorus
+## Program3.java — Sing the Chorus
 Create methods to output the chorus of this Beatles tune.
 ```java
 public class Program3 extends ConsoleProgram {
@@ -289,7 +289,7 @@ public class Program3 extends ConsoleProgram {
 }
 ```
 
-## Program4.java — Divider Line
+## Program4.java — Dividing Line
 Combine regular output statements with a method that prints the divider line.
 ```java
 public class Program4 extends ConsoleProgram {
@@ -333,7 +333,7 @@ public class Program5 extends ConsoleProgram {
 }
 ```
 
-## Program6.java — ASCII Tower Builder
+## Program6.java — Building Towers
 ```java
 public class Program6 extends ConsoleProgram {
     public void run() {
@@ -353,7 +353,7 @@ public class Program6 extends ConsoleProgram {
 }
 ```
 
-## Program7.java — Modular Ladder (Methods Calling Methods)
+## Program7.java — Modular Ladder
 ```java
 public class Program7 extends ConsoleProgram {
     public void run() {
@@ -387,6 +387,7 @@ public class Program7 extends ConsoleProgram {
 
     private void level() {
         // one level is made up of a side plus a rung
+        // HITN: This method should call other methods!
     }
 }
 ```
