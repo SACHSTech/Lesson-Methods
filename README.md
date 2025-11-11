@@ -436,8 +436,7 @@ public class Program8 extends ConsoleProgram {
 ```
 
 
-
-## Program9.java — Simple Menu Loop
+## Program9.java — Food Menus
 ```java
 public class Program9 extends ConsoleProgram {
     public void run() {
@@ -466,7 +465,7 @@ public class Program9 extends ConsoleProgram {
 ```
 
 
-## Program10.java — Challenge: Conditional Story Paths
+## Program10.java — Conditional Story Paths
 ```java
 public class Program10 extends ConsoleProgram {
     public void run() {
