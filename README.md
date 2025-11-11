@@ -140,11 +140,6 @@ border();
 
 the computer temporarily jumps to the method body, runs its statements, and then returns to where it left off.
 
-
-
-
-
-
 <br>
 
 ## Calling a Method (Control Flow)
@@ -178,12 +173,69 @@ This “jump out and return” idea applies to every method you will write.
 
 <br>
 
+## Where Do We Write Our Methods?
+
+So far, all of our programs have looked something like this:
+
+```java
+public class Main extends ConsoleProgram {
+    public void run() {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+When we start creating our own methods, we will continue to write all of our main program logic inside `run()`, and we will define our helper methods **below** it.
+
+### Example Template
+
+```java
+public class Main extends ConsoleProgram {
+
+    public void run() {
+        // Program steps go here
+        // You will call your methods from here
+    }
+
+    // ↓↓↓ Your methods go below run() ↓↓↓
+
+    private void myFirstMethod() {
+        // one job goes here
+    }
+
+    private void mySecondMethod() {
+        // another job goes here
+    }
+
+}
+```
+
+### Why Do We Put Methods Below `run()`?
+
+- `run()` should act like the “table of contents” — it shows the overall structure of the program.
+- Helper methods support `run()` and are kept lower down to avoid distractions.
+- It keeps your program easy to scan and understand.
+
+### Style Notes (for consistency)
+
+| Rule | Example |
+|------|---------|
+| Leave **one blank line** between method definitions | Makes code visually grouped and readable |
+| Method names should describe what they **do** | `drawBorder()`, `printMenu()`, `playChorus()` |
+| Methods should do **one job well** | If a method starts becoming long, break it up |
+
+We’ll learn how to comment methods later, but for now, focus on clear structure and clean spacing.
+
+<br>
+
 # Practice Problems
 Here are several practice problems requiring the use of methods. Your job is to take code that currently has repetition or messy structure and rewrite it using methods.
 
 You can find the starter code in the `src/` folder of this repository.
 
 ## Program1.java — Basic Method Call
+Write a basic method that says hello:
+
 ```java
 public class Program1 extends ConsoleProgram {
     public void run() {
@@ -196,6 +248,8 @@ public class Program1 extends ConsoleProgram {
 ```
 
 ## Program2.java — Replace Repetition
+Use a method to minimize the repetitive code in this program:
+
 ```java
 public class Program2 extends ConsoleProgram {
     public void run() {
@@ -218,14 +272,17 @@ public class Program2 extends ConsoleProgram {
 ```
 
 ## Program3.java — Extract the Chorus
+Create methods to output the chorus of this Beatles tune.
 ```java
 public class Program3 extends ConsoleProgram {
     public void run() {
         // Output:
-        // na na na na na
+        // na na na na na 
         // na na na na na
         // hey Jude
         // na na na na na
+        // na na na na na
+        // hey Jude
 
         // TODO: create chorus() for repeated lines
     }
@@ -233,6 +290,7 @@ public class Program3 extends ConsoleProgram {
 ```
 
 ## Program4.java — Divider Line
+Combine regular output statements with a method that prints the divider line.
 ```java
 public class Program4 extends ConsoleProgram {
     public void run() {
@@ -248,6 +306,7 @@ public class Program4 extends ConsoleProgram {
 ```
 
 ## Program5.java — Baby Shark
+Look for repetition and create methods to print the lyrics of this song:
 ```java
 public class Program5 extends ConsoleProgram {
     public void run() {
@@ -298,7 +357,7 @@ public class Program6 extends ConsoleProgram {
 ```java
 public class Program7 extends ConsoleProgram {
     public void run() {
-        // We want to draw a ladder with several repeating levels:
+        // We want to draw a ladder with repeating levels:
         //
         // |    |
         // +----+
@@ -307,9 +366,10 @@ public class Program7 extends ConsoleProgram {
         // |    |
         // +----+
         //
-        // Ask the user how many levels high the ladder is. The above example is 3 levels high.
+        // Ask the user for the desired height and generate an
+        // appropriate ladder. The example above is 3 levels high.
 
-        int levels = readInt("How many levels? ");
+        int levels = readInt("Enter desired height: ");
 
         // call your methods here
 
