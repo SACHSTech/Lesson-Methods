@@ -1,13 +1,14 @@
 # Introduction to Methods
 
-So far, we have been writing code as one long sequence inside the `run()` method. As programs grow, this becomes:
-- harder to read,
-- harder to debug,
-- and harder to extend.
+So far, we have been writing code as one long sequence inside the `run()` block. As programs grow in length and complexity, this becomes:
 
-To keep our programs organized, we use **methods**.
+- more difficult to read,
+- more difficult to debug, and
+- more difficult to extend.
 
-A **method** is a **small, named block of code** that does one job.  Once defined, we can **call** the method whenever we need that job done.
+To keep our programs organized, we will use **methods**.
+
+A method is a **small, named block of code** that does one job.  Once defined, we can **call** the method whenever we need that job done.
 
 ### Why Use Methods?
 
@@ -18,6 +19,8 @@ A **method** is a **small, named block of code** that does one job.  Once define
 | **Easier debugging** | Fix code in one place instead of several |
 | **More maintainable** | Changes happen in one location |
 | **Modular thinking** | Each method does *one thing well* |
+
+As in life, it often helps to break big tasks into small, meaningful units. The momentous task of packing and moving an entire home might be easier if we thought of packing each room one by one.
 
 This idea — breaking work into small, meaningful units — is central to all good programming.
 
@@ -101,19 +104,12 @@ Now the `height` of the box can be changed by adjusting just one number.
 | Mistakes are easy to introduce | Easier to debug and maintain |
 
 
-Using methods makes your code:
-
-- Cleaner
-- More readable
-- Easier to fix and modify
-- Better organized
-
-This is the main purpose of methods.
+Using methods makes your code cleaner, more organized, easier to read and maintain. 
 
 <br>
 
 ## Method Structure
-One of the methods we defined above looked like this in code:
+Here is one of the methods we defined earlier:
 
 ```java
 private void border() {
@@ -121,18 +117,33 @@ private void border() {
 }
 ```
 
-Let's look at the first line of this in more detail:
+The first line is called the **method header**. It tells us everything we need to know about the method before it runs:
 
-```
-visibility  return  name     { body }
-  ↓           ↓       ↓        ↓
-private     void    border() { ...  }
+![method](.media/01.png)
+
+### Breaking Down the Method Header
+
+| Part | Description |
+|------|-------------|
+| `private` | This is the **visibility** of the method. It specifies "who" is allowed to use it. For now, we will simply make most of our helper methods `private`. (It will become clearer when we study object-oriented design in ICS4U.) |
+| `void` | This tells us that the method does not **return a value**. Later, we will learn how methods can send information back to the program. |
+| `border()` | This is the **method name** followed by parentheses. The name should follow variable naming rules and describe what the method *does* or *represents*. (We will learn about putting values inside the parentheses soon.) |
+| `{ ... }` | The **method body** contains the statements that actually run when the method is called. |
+
+For now, you can think of a method as a **named section of code** that we can “jump to” whenever we want to reuse that code.
+
+When our program calls the method:
+
+```java
+border();
 ```
 
-- `private` — visibility (we will use `private` in this class)
-- `void` — this method does not return a value (more on this later)
-- `border()` — method name (follows variable naming rules)
-- `{ body }` — the statements that run when called
+the computer temporarily jumps to the method body, runs its statements, and then returns to where it left off.
+
+
+
+
+
 
 <br>
 
@@ -142,25 +153,25 @@ When you call a method, execution:
 1. **pauses** in the calling method
 2. **jumps** to the new method
 3. runs the method's **body**
-4. **returns** to the original location and continues
+4. **returns** to the original calling method's location and continues
 
 For example, given the code:
 
 ```java
-public void run() {
-    border();
-    middle();
-    middle();
-    border();
-}
+L1  public void run() {
+L2      border();
+L3      middle();
+L4      middle();
+L5      border();
+L6  }
 ```
 The execution order goes something like:
 
 ```
-run() → border() → return and continue run()
-      → middle() → return and continue run()
-      → middle() → return and continue run()
-      → border() → return and continue run()
+run() → border() → return to L2 and continue run()
+      → middle() → return to L3 and continue run()
+      → middle() → return to L4 and continue run()
+      → border() → return to L5 and continue run()
 ```
 
 This “jump out and return” idea applies to every method you will write.
@@ -344,7 +355,7 @@ public class Program8 extends ConsoleProgram {
         int height = readInt("Enter height of flag: ");
 
         // do additional stuff
-        
+
     }
 
     // define your stripes below
